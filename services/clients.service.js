@@ -12,8 +12,67 @@ class Client {
   }
 
   getAllHotel() {
-    return this.hotelData.name;
+    return this.hotelData;
   }
+
+  getAllRooms() {
+    return this.hotelData.rooms;
+  }
+
+  getRoomById(id) {
+    const roomId  = parseInt(id);
+    return this.hotelData.rooms.find(room => room.id === roomId );
+  }
+
+  reserveRoom(clientId, roomId) {
+    const client = this.clientsData.clients.find(client => client.id === clientId);
+    if (!client) {
+      throw new Error(`Client with ID ${clientId} not found.`);
+    }
+  
+    const room = this.hotelData.rooms.find(room => room.id === roomId);
+    if (!room) {
+      throw new Error(`Room with ID ${roomId} not found.`);
+    }
+  
+    if (room.reserved) {
+      throw new Error(`Room with ID ${roomId} is already reserved.`);
+    }
+  
+    client.reservedRoom = roomId;
+    room.reserved = true;
+  
+    this.saveClientsData();
+    this.saveHotelData();
+  
+    return { client, room };
+  }
+  
+  cancelReservation(clientId) {
+    const client = this.clientsData.clients.find(client => client.id === clientId);
+    if (!client) {
+      throw new Error(`Client with ID ${clientId} not found.`);
+    }
+  
+    const roomId = client.reservedRoom;
+    if (!roomId) {
+      throw new Error(`Client with ID ${clientId} does not have a reserved room.`);
+    }
+  
+    const room = this.hotelData.rooms.find(room => room.id === roomId);
+    if (!room) {
+      throw new Error(`Room with ID ${roomId} not found.`);
+    }
+  
+    client.reservedRoom = null;
+    room.reserved = false;
+  
+    this.saveClientsData();
+    this.saveHotelData();
+  
+    return { client, room };
+  }
+  
 
   loadHotelData() {
     try {
@@ -59,6 +118,22 @@ class ClientService {
 
   getHotel(){
     return this.client.getAllHotel();
+  }
+
+  getAllRooms(){
+    return this.client.getAllRooms();
+  }
+
+  getRoomById(id){
+    return this.client.getRoomById(id);
+  }
+
+  reserveRoom(clientId, roomId){
+    return this.client.reserveRoom(clientId, roomId);
+  }
+
+  cancelReservation(clientId){
+    return this.client.cancelReservation(clientId);
   }
 }
 
