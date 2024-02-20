@@ -1,0 +1,66 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "phone": "+1-555-555-5555",
+      "room": true,
+      "roomId": null
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "janesmith@example.com",
+      "phone": "+1-555-555-5555"
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "email": "bobjohnson@example.com",
+      "phone": "+1-555-555-5555"
+    },
+    {
+      "id": 4,
+      "name": "Sarah Lee",
+      "email": "sarahlee@example.com",
+      "phone": "+1-555-555-5555"
+    },
+    {
+      "id": 5,
+      "name": "Tommy Cheyn",
+      "email": "tommycheyn@example.com",
+      "phone": "+1-555-555-5555"
+    },
+    {
+      "id": 6,
+      "name": "Amy RedWine",
+      "email": "amyredwine@example.com",
+      "phone": "+1-555-555-5555"
+    },
+    {
+      "id": 7,
+      "name": "Juan Perez",
+      "email": "juanperez@example.com",
+      "phone": "+1-555-555-5555"
+    },
+    {
+      "id": 8,
+      "name": "Hannah Kim",
+      "email": "hannahkim@example.com",
+      "phone": "+1-555-555-5555"
+    },
+    {
+      "id": 9,
+      "name": "Miles Davis",
+      "email": "milesdavis@example.com",
+      "phone": "+1-555-555-5555"
+    },
+    {
+      "id": 10,
+      "name": "Mary Johnson",
+      "email": "maryjohnson@example.com",
+      "phone": "+1-555-555-5555"
+    }
+  ]
+}
